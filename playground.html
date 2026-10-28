@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Playground — Название типографии</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;700;800&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/playground.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+<div class="pg-bar">
+  <div class="wrap pg-bar-in">
+    <strong>Playground</strong>
+    <a href="index.html">На главную</a>
+    <button class="theme pg-theme" type="button" aria-label="Переключить тему">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+    </button>
+  </div>
+</div>
+<div class="wrap pg-intro">
+  <h1>Элементы сайта</h1>
+  <p>Каждый блок показан вживую, под ним HTML, который можно скопировать. Стили лежат в css/style.css, оформление этой страницы в css/playground.css. Новую страницу удобно начинать с page-template.html.</p>
+  <nav class="pg-nav"><a href="#tokens">Цвета</a><a href="#buttons">Кнопки</a><a href="#phones">Телефоны</a><a href="#header">Шапка</a><a href="#hero">Первый экран</a><a href="#sechead">Заголовок</a><a href="#cards">Карточки</a><a href="#panel3">Таблица 3</a><a href="#panel2">Таблица 2</a><a href="#two">Две панели</a><a href="#note">Примечание</a><a href="#footer">Подвал</a></nav>
+</div>
+<section class="pg-sec" id="tokens">
+  <div class="wrap">
+    <div class="sec-head"><h2>Цвета и шрифты</h2><p>Всё берётся из переменных в начале style.css. Чтобы поменять акцент, правьте --accent, --accent-2 и градиенты, тёмная тема переопределяет те же переменные.</p></div>
+    <div class="pg-demo "><div class="pg-swgrid"><div class="pg-sw"><span class="pg-chip" style="background:var(--bg)"></span><code>--bg</code><small>Фон страницы</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--surface)"></span><code>--surface</code><small>Карточки, панели</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--surface-2)"></span><code>--surface-2</code><small>Чётные строки таблиц, шапка таблицы</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--fg)"></span><code>--fg</code><small>Основной текст</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--muted)"></span><code>--muted</code><small>Второстепенный текст</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--line)"></span><code>--line</code><small>Линии и рамки</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--accent)"></span><code>--accent</code><small>Акцент: заголовки, ссылки</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--accent-2)"></span><code>--accent-2</code><small>Акцент светлее: фокус, ховер</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--grad-head)"></span><code>--grad-head</code><small>Шапка и подвал</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--grad-btn)"></span><code>--grad-btn</code><small>Кнопка .btn</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--grad-th)"></span><code>--grad-th</code><small>Заголовок панели</small></div><div class="pg-sw"><span class="pg-chip" style="background:var(--hero)"></span><code>--hero</code><small>Фон первого экрана</small></div></div><div class="pg-type">
+  <p style="font-family:var(--font-display);font-weight:800;font-size:38px;line-height:1.1">Exo 2 800, заголовки</p>
+  <p style="font-family:var(--font-display);font-weight:700;font-size:21px">Exo 2 700, подзаголовки, кнопки, цены</p>
+  <p>PT Sans 400, основной текст. Тираж от 1000 экземпляров, газетная и офсетная бумага.</p>
+  <p><b>PT Sans 700</b> для выделения в тексте.</p>
+</div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;!-- пример использования --&gt;
+&lt;p style=&quot;color: var(--muted)&quot;&gt;Текст&lt;/p&gt;
+font-family: var(--font-display);  /* заголовки */
+font-family: var(--font-body);     /* текст */</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="buttons">
+  <div class="wrap">
+    <div class="sec-head"><h2>Кнопки</h2><p>Основная .btn, светлая .btn.ghost. В шапке и подвале кнопка автоматически светлая, там цвет задан от родителя.</p></div>
+    <div class="pg-demo pg-row"><a class="btn" href="#">Смотреть цены</a>
+<a class="btn ghost" href="#">Контакты</a></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;a class=&quot;btn&quot; href=&quot;#&quot;&gt;Смотреть цены&lt;/a&gt;
+&lt;a class=&quot;btn ghost&quot; href=&quot;#&quot;&gt;Контакты&lt;/a&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="phones">
+  <div class="wrap">
+    <div class="sec-head"><h2>Номера телефонов</h2><p>.phones это сетка из трёх плашек, на узком экране столбик. Работает на синем фоне шапки или подвала.</p></div>
+    <div class="pg-demo pg-blue"><div class="phones">
+  <a class="phone" href="tel:+70000000001">+7 (000) 000-00-01</a>
+  <a class="phone" href="tel:+70000000002">+7 (000) 000-00-02</a>
+  <a class="phone" href="tel:+70000000003">+7 (000) 000-00-03</a>
+</div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;div class=&quot;phones&quot;&gt;
+  &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000001&quot;&gt;+7 (000) 000-00-01&lt;/a&gt;
+  &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000002&quot;&gt;+7 (000) 000-00-02&lt;/a&gt;
+  &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000003&quot;&gt;+7 (000) 000-00-03&lt;/a&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="header">
+  <div class="wrap">
+    <div class="sec-head"><h2>Шапка</h2><p>Название, переключатель темы, телефоны, адрес и кнопка 2ГИС. Кнопка .theme подхватывается скриптом theme.js по классу.</p></div>
+    <div class="pg-demo pg-bleed"><header class="top">
+  <div class="wrap">
+    <div class="top-row">
+      <div class="brand">Название типографии</div>
+      <button class="theme" type="button" aria-label="Переключить тему">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="phones">
+      <a class="phone" href="tel:+70000000001">+7 (000) 000-00-01</a>
+      <a class="phone" href="tel:+70000000002">+7 (000) 000-00-02</a>
+      <a class="phone" href="tel:+70000000003">+7 (000) 000-00-03</a>
+    </div>
+    <div class="addr-row">
+      <div class="addr">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <span>г. Город, ул. Улица, д. 0</span>
+      </div>
+      <a class="btn" href="https://2gis.ru/" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+    </div>
+  </div>
+</header></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;header class=&quot;top&quot;&gt;
+  &lt;div class=&quot;wrap&quot;&gt;
+    &lt;div class=&quot;top-row&quot;&gt;
+      &lt;div class=&quot;brand&quot;&gt;Название типографии&lt;/div&gt;
+      &lt;button class=&quot;theme&quot; type=&quot;button&quot; aria-label=&quot;Переключить тему&quot;&gt;
+        &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;9&quot;/&gt;&lt;path d=&quot;M12 3v18&quot; /&gt;&lt;path d=&quot;M12 3a9 9 0 0 1 0 18z&quot; fill=&quot;currentColor&quot;/&gt;&lt;/svg&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;phones&quot;&gt;
+      &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000001&quot;&gt;+7 (000) 000-00-01&lt;/a&gt;
+      &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000002&quot;&gt;+7 (000) 000-00-02&lt;/a&gt;
+      &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000003&quot;&gt;+7 (000) 000-00-03&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;addr-row&quot;&gt;
+      &lt;div class=&quot;addr&quot;&gt;
+        &lt;svg viewBox=&quot;0 0 24 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z&quot;/&gt;&lt;circle cx=&quot;12&quot; cy=&quot;10&quot; r=&quot;2.5&quot;/&gt;&lt;/svg&gt;
+        &lt;span&gt;г. Город, ул. Улица, д. 0&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;a class=&quot;btn&quot; href=&quot;https://2gis.ru/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Открыть в 2ГИС&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="hero">
+  <div class="wrap">
+    <div class="sec-head"><h2>Первый экран</h2><p>Один блок с заголовком, подводкой и двумя кнопками.</p></div>
+    <div class="pg-demo pg-bleed"><div class="hero">
+    <div class="wrap">
+      <h1>Печатаем бланки, журналы и книжки</h1>
+      <p>Тиражи от тысячи экземпляров на газетной и офсетной бумаге. Ниже все расценки: выберите формат и сразу увидите цену.</p>
+      <div class="actions">
+        <a class="btn" href="#blanks">Смотреть цены</a>
+        <a class="btn ghost" href="#contact">Контакты</a>
+      </div>
+    </div>
+  </div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;div class=&quot;hero&quot;&gt;
+    &lt;div class=&quot;wrap&quot;&gt;
+      &lt;h1&gt;Печатаем бланки, журналы и книжки&lt;/h1&gt;
+      &lt;p&gt;Тиражи от тысячи экземпляров на газетной и офсетной бумаге. Ниже все расценки: выберите формат и сразу увидите цену.&lt;/p&gt;
+      &lt;div class=&quot;actions&quot;&gt;
+        &lt;a class=&quot;btn&quot; href=&quot;#blanks&quot;&gt;Смотреть цены&lt;/a&gt;
+        &lt;a class=&quot;btn ghost&quot; href=&quot;#contact&quot;&gt;Контакты&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="sechead">
+  <div class="wrap">
+    <div class="sec-head"><h2>Заголовок раздела</h2><p>Используется в начале каждой секции. Секция это section с вложенным div.wrap.</p></div>
+    <div class="pg-demo "><div class="sec-head"><h2>Заголовок раздела</h2><p>Короткое пояснение под заголовком.</p></div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;section id=&quot;example&quot;&gt;
+  &lt;div class=&quot;wrap&quot;&gt;
+    &lt;div class=&quot;sec-head&quot;&gt;
+      &lt;h2&gt;Заголовок раздела&lt;/h2&gt;
+      &lt;p&gt;Короткое пояснение под заголовком.&lt;/p&gt;
+    &lt;/div&gt;
+    ...
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="cards">
+  <div class="wrap">
+    <div class="sec-head"><h2>Карточки-ссылки</h2><p>Сетка .cards: 1 колонка на телефоне, 2 от 930px, 4 от 1000px. Внутри h3, p и необязательная строка .from.</p></div>
+    <div class="pg-demo "><div class="cards">
+  <a class="card" href="#">
+    <h3>Бланки</h3>
+    <p>Форматы от А7 до А3, одна или две стороны.</p>
+    <span class="from">от 550 ₽ за 1000 шт. →</span>
+  </a>
+  <a class="card" href="#">
+    <h3>Журналы и книжки</h3>
+    <p>Журналы, книжки А6, памятки.</p>
+    <span class="from">от 40 ₽ за шт. →</span>
+  </a>
+</div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;div class=&quot;cards&quot;&gt;
+  &lt;a class=&quot;card&quot; href=&quot;#&quot;&gt;
+    &lt;h3&gt;Бланки&lt;/h3&gt;
+    &lt;p&gt;Форматы от А7 до А3, одна или две стороны.&lt;/p&gt;
+    &lt;span class=&quot;from&quot;&gt;от 550 ₽ за 1000 шт. →&lt;/span&gt;
+  &lt;/a&gt;
+  &lt;a class=&quot;card&quot; href=&quot;#&quot;&gt;
+    &lt;h3&gt;Журналы и книжки&lt;/h3&gt;
+    &lt;p&gt;Журналы, книжки А6, памятки.&lt;/p&gt;
+    &lt;span class=&quot;from&quot;&gt;от 40 ₽ за шт. →&lt;/span&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="panel3">
+  <div class="wrap">
+    <div class="sec-head"><h2>Панель с таблицей, три колонки</h2><p>Панель .panel с заголовком h3 и таблицей внутри .tw (на случай узкого экрана таблица прокручивается внутри себя). Мелкая подпись в small идёт отдельной строкой под заголовком.</p></div>
+    <div class="pg-demo "><div class="panel">
+  <h3>Газетная бумага <small>руб. за 1000 экз.</small></h3>
+  <div class="tw"><table>
+    <thead><tr><th>Формат</th><th>Без оборота</th><th>С оборотом</th></tr></thead>
+    <tbody>
+      <tr><td><b>А7</b> <small>(1/64)</small></td><td>550</td><td>600</td></tr>
+      <tr><td><b>А6</b> <small>(1/32)</small></td><td>900</td><td>1&nbsp;500</td></tr>
+    </tbody>
+  </table></div>
+</div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;div class=&quot;panel&quot;&gt;
+  &lt;h3&gt;Газетная бумага &lt;small&gt;руб. за 1000 экз.&lt;/small&gt;&lt;/h3&gt;
+  &lt;div class=&quot;tw&quot;&gt;&lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Формат&lt;/th&gt;&lt;th&gt;Без оборота&lt;/th&gt;&lt;th&gt;С оборотом&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;А7&lt;/b&gt; &lt;small&gt;(1/64)&lt;/small&gt;&lt;/td&gt;&lt;td&gt;550&lt;/td&gt;&lt;td&gt;600&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;А6&lt;/b&gt; &lt;small&gt;(1/32)&lt;/small&gt;&lt;/td&gt;&lt;td&gt;900&lt;/td&gt;&lt;td&gt;1&amp;nbsp;500&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="panel2">
+  <div class="wrap">
+    <div class="sec-head"><h2>Панель с таблицей, две колонки</h2><p>Для простых прайсов: название слева, цена справа. Диапазон пишется через длинное тире с пробелами.</p></div>
+    <div class="pg-demo "><div class="panel">
+  <h3>Цветная печать</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Формат</th><th>Цена, ₽</th></tr></thead>
+    <tbody>
+      <tr><td><b>А4</b></td><td>25</td></tr>
+      <tr><td><b>А3</b></td><td>35</td></tr>
+      <tr><td><b>Удостоверение</b></td><td>40 – 80</td></tr>
+    </tbody>
+  </table></div>
+</div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;div class=&quot;panel&quot;&gt;
+  &lt;h3&gt;Цветная печать&lt;/h3&gt;
+  &lt;div class=&quot;tw&quot;&gt;&lt;table&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Формат&lt;/th&gt;&lt;th&gt;Цена, ₽&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;А4&lt;/b&gt;&lt;/td&gt;&lt;td&gt;25&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;А3&lt;/b&gt;&lt;/td&gt;&lt;td&gt;35&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;&lt;b&gt;Удостоверение&lt;/b&gt;&lt;/td&gt;&lt;td&gt;40 – 80&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="two">
+  <div class="wrap">
+    <div class="sec-head"><h2>Две панели рядом</h2><p>Обёртка .two: на телефоне панели друг под другом, от 930px по две в ряд.</p></div>
+    <div class="pg-demo "><div class="two">
+  <div class="panel">
+    <h3>Ватман</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Формат</th><th>Цена, ₽</th></tr></thead>
+      <tbody><tr><td><b>А1</b></td><td>60</td></tr></tbody>
+    </table></div>
+  </div>
+  <div class="panel">
+    <h3>Картон</h3>
+    <div class="tw"><table>
+      <thead><tr><th>Формат</th><th>Цена, ₽</th></tr></thead>
+      <tbody><tr><td><b>А4</b> <small>2 ст.</small></td><td>15</td></tr></tbody>
+    </table></div>
+  </div>
+</div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;div class=&quot;two&quot;&gt;
+  &lt;div class=&quot;panel&quot;&gt;
+    &lt;h3&gt;Ватман&lt;/h3&gt;
+    &lt;div class=&quot;tw&quot;&gt;&lt;table&gt;
+      &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Формат&lt;/th&gt;&lt;th&gt;Цена, ₽&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;А1&lt;/b&gt;&lt;/td&gt;&lt;td&gt;60&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;/table&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;panel&quot;&gt;
+    &lt;h3&gt;Картон&lt;/h3&gt;
+    &lt;div class=&quot;tw&quot;&gt;&lt;table&gt;
+      &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Формат&lt;/th&gt;&lt;th&gt;Цена, ₽&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;А4&lt;/b&gt; &lt;small&gt;2 ст.&lt;/small&gt;&lt;/td&gt;&lt;td&gt;15&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;/table&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="note">
+  <div class="wrap">
+    <div class="sec-head"><h2>Примечание</h2><p>Пунктирная рамка для условий, скидок и оговорок.</p></div>
+    <div class="pg-demo "><div class="note">Цены указаны за заказ на 1–3 журнала. При большем количестве действует скидка.</div></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;div class=&quot;note&quot;&gt;Цены указаны за заказ на 1–3 журнала. При большем количестве действует скидка.&lt;/div&gt;</code></pre></details>
+  </div>
+</section>
+<section class="pg-sec" id="footer">
+  <div class="wrap">
+    <div class="sec-head"><h2>Подвал с контактами</h2><p>Те же телефоны и кнопка 2ГИС, что и в шапке. При смене номеров правьте оба места.</p></div>
+    <div class="pg-demo pg-bleed"><footer class="contact" id="contact">
+  <div class="wrap">
+    <h2>Закажите печать</h2>
+    <p>Позвоните или приезжайте. Подскажем по форматам и тиражам.</p>
+    <div class="phones">
+      <a class="phone" href="tel:+70000000001">+7 (000) 000-00-01</a>
+      <a class="phone" href="tel:+70000000002">+7 (000) 000-00-02</a>
+      <a class="phone" href="tel:+70000000003">+7 (000) 000-00-03</a>
+    </div>
+    <p>г. Город, ул. Улица, д. 0</p>
+    <a class="btn" href="https://2gis.ru/" target="_blank" rel="noopener">Открыть в 2ГИС</a>
+    <p class="fine">Прайс-лист от 28.10.2026. Цены указаны в рублях.</p>
+  </div>
+</footer></div>
+    <details class="pg-code"><summary>HTML</summary><pre><code>&lt;footer class=&quot;contact&quot; id=&quot;contact&quot;&gt;
+  &lt;div class=&quot;wrap&quot;&gt;
+    &lt;h2&gt;Закажите печать&lt;/h2&gt;
+    &lt;p&gt;Позвоните или приезжайте. Подскажем по форматам и тиражам.&lt;/p&gt;
+    &lt;div class=&quot;phones&quot;&gt;
+      &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000001&quot;&gt;+7 (000) 000-00-01&lt;/a&gt;
+      &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000002&quot;&gt;+7 (000) 000-00-02&lt;/a&gt;
+      &lt;a class=&quot;phone&quot; href=&quot;tel:+70000000003&quot;&gt;+7 (000) 000-00-03&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;p&gt;г. Город, ул. Улица, д. 0&lt;/p&gt;
+    &lt;a class=&quot;btn&quot; href=&quot;https://2gis.ru/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Открыть в 2ГИС&lt;/a&gt;
+    &lt;p class=&quot;fine&quot;&gt;Прайс-лист от 28.10.2026. Цены указаны в рублях.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre></details>
+  </div>
+</section>
+</body>
+</html>

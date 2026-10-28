@@ -1,0 +1,140 @@
+/* Базовые стили. Токены цвета и шрифтов в начале файла. Тёмная тема: [data-theme="dark"] и prefers-color-scheme. */
+/* Layout: одна колонка для телефона, секции с большим шагом, глянцевая шапка в стиле нулевых */
+:root{
+  color-scheme:light;
+  --bg:#eaf0f9;
+  --surface:#ffffff;
+  --surface-2:#f3f7fd;
+  --fg:#10213b;
+  --muted:#52647f;
+  --line:#c6d4ea;
+  --accent:#0a4a96;
+  --accent-2:#1b6fc9;
+  --accent-ink:#ffffff;
+  --shadow:0 1px 0 #fff inset, 0 6px 18px rgba(10,50,110,.12);
+  --grad-head:linear-gradient(180deg,#2a7fd8 0%,#0f55a8 48%,#083a78 52%,#0a4a96 100%);
+  --grad-btn:linear-gradient(180deg,#5aa6ee 0%,#1b6fc9 48%,#0a4a96 52%,#0d5bb0 100%);
+  --grad-th:linear-gradient(180deg,#e3eefb 0%,#c9dcf3 100%);
+  --th-fg:#0a3a77;
+  --hero:linear-gradient(180deg,#f7faff 0%,#dbe8f8 100%);
+  --pill:rgba(255,255,255,.14);
+  --font-display:"Exo 2","Trebuchet MS",Tahoma,sans-serif;
+  --font-body:"PT Sans",Tahoma,Verdana,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#08111f;--surface:#101e35;--surface-2:#0c192d;--fg:#e4edfb;--muted:#92a6c7;--line:#24395e;
+    --accent:#4a9cf0;--accent-2:#2d86e6;--accent-ink:#ffffff;
+    --shadow:0 1px 0 rgba(255,255,255,.05) inset, 0 6px 18px rgba(0,0,0,.45);
+    --grad-head:linear-gradient(180deg,#1c5fb0 0%,#0d3f80 48%,#082b5c 52%,#0a3670 100%);
+    --grad-btn:linear-gradient(180deg,#4f9ae6 0%,#1d6cc4 48%,#0e4a94 52%,#115ba8 100%);
+    --grad-th:linear-gradient(180deg,#1b3357 0%,#142846 100%);
+    --th-fg:#cfe2ff;
+    --hero:linear-gradient(180deg,#0f2342 0%,#08111f 100%);
+    --pill:rgba(255,255,255,.1);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#08111f;--surface:#101e35;--surface-2:#0c192d;--fg:#e4edfb;--muted:#92a6c7;--line:#24395e;
+  --accent:#4a9cf0;--accent-2:#2d86e6;--accent-ink:#ffffff;
+  --shadow:0 1px 0 rgba(255,255,255,.05) inset, 0 6px 18px rgba(0,0,0,.45);
+  --grad-head:linear-gradient(180deg,#1c5fb0 0%,#0d3f80 48%,#082b5c 52%,#0a3670 100%);
+  --grad-btn:linear-gradient(180deg,#4f9ae6 0%,#1d6cc4 48%,#0e4a94 52%,#115ba8 100%);
+  --grad-th:linear-gradient(180deg,#1b3357 0%,#142846 100%);
+  --th-fg:#cfe2ff;
+  --hero:linear-gradient(180deg,#0f2342 0%,#08111f 100%);
+  --pill:rgba(255,255,255,.1);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--font-body);font-size:17px;line-height:1.55;
+  padding-block:0;
+  -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--font-display);line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px}
+
+/* ---------- Шапка ---------- */
+.top{background:var(--grad-head);color:#fff;border-bottom:1px solid rgba(0,0,0,.35);box-shadow:0 2px 0 rgba(255,255,255,.18) inset,0 4px 14px rgba(5,30,70,.35)}
+.top .wrap{display:grid;gap:14px;padding-block:16px 18px}
+.top-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-family:var(--font-display);font-weight:800;font-size:clamp(22px,6vw,32px);letter-spacing:.01em;text-shadow:0 1px 0 rgba(0,0,0,.4);min-width:0;overflow-wrap:anywhere}
+.theme{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.45);background:var(--pill);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 1px 0 rgba(255,255,255,.35) inset}
+.theme:hover{background:rgba(255,255,255,.28)}
+.theme svg{width:22px;height:22px}
+.phones{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.phone{display:block;text-align:center;text-decoration:none;color:#fff;background:var(--pill);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:9px 6px;font-weight:700;font-size:16px;white-space:nowrap;box-shadow:0 1px 0 rgba(255,255,255,.3) inset}
+.phone:hover{background:rgba(255,255,255,.26)}
+.addr-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.addr{display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 220px;font-size:16px}
+@media (max-width:639px){.phones{grid-template-columns:1fr}.phone{font-size:18px;padding:11px 8px}}
+.addr svg{flex:none;width:20px;height:20px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--accent-ink);font-family:var(--font-display);font-weight:700;font-size:16px;padding:11px 18px;border-radius:7px;border:1px solid rgba(0,25,70,.7);background:var(--grad-btn);box-shadow:0 1px 0 rgba(255,255,255,.55) inset,0 2px 5px rgba(0,20,60,.35);text-shadow:0 -1px 0 rgba(0,0,0,.35);cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.btn:active{transform:translateY(1px)}
+.top .btn{background:linear-gradient(180deg,#ffffff 0%,#dbe9fa 50%,#bcd4f1 52%,#d3e4f8 100%);color:#08376f;text-shadow:0 1px 0 rgba(255,255,255,.8);border-color:rgba(0,25,70,.6)}
+
+/* ---------- Первый экран ---------- */
+.hero{background:var(--hero);border-bottom:1px solid var(--line)}
+.hero .wrap{padding-block:48px 56px;display:grid;gap:20px}
+.eyebrow{font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.hero h1{font-size:clamp(32px,9vw,54px);font-weight:800;color:var(--accent)}
+.hero p{font-size:19px;color:var(--muted);max-width:34em}
+.hero .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn.ghost{background:var(--surface);color:var(--accent);text-shadow:none;border-color:var(--line);box-shadow:var(--shadow)}
+
+/* ---------- Секции ---------- */
+section{padding-block:56px 8px}
+.sec-head{display:grid;gap:8px;margin-bottom:22px}
+.sec-head h2{font-size:clamp(26px,7vw,38px);font-weight:800;color:var(--accent)}
+.sec-head p{color:var(--muted)}
+.cards{display:grid;gap:14px;grid-template-columns:1fr}
+.card{display:block;text-decoration:none;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+.card h3{font-size:21px;margin-bottom:6px;color:var(--accent)}
+.card p{color:var(--muted);font-size:16px}
+.card .from{display:inline-block;margin-top:12px;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--accent)}
+.card:hover{border-color:var(--accent-2)}
+
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:22px}
+.panel>h3{font-size:19px;padding:13px 16px;background:var(--grad-th);color:var(--th-fg);border-bottom:1px solid var(--line)}
+.panel>h3 small{font-family:var(--font-body);font-weight:400;font-size:14px;color:var(--muted);display:block;margin:3px 0 0}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal}
+thead th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);font-weight:700}
+tbody tr:nth-child(even){background:var(--surface-2)}
+tbody tr:last-child td{border-bottom:0}
+td b{font-family:var(--font-display);font-size:18px;color:var(--fg)}
+td small{color:var(--muted);font-size:14px}
+.span td{text-align:center;color:var(--muted)}
+.note{background:var(--surface);border:1px dashed var(--accent-2);border-radius:8px;padding:14px 16px;color:var(--muted);font-size:16px;margin-bottom:22px}
+.two{display:grid;gap:22px;grid-template-columns:1fr}
+.two .panel{margin-bottom:0}
+
+/* ---------- Контакты ---------- */
+.contact{margin-top:56px;background:var(--grad-head);color:#fff;border-top:1px solid rgba(0,0,0,.35);box-shadow:0 2px 0 rgba(255,255,255,.18) inset}
+.contact .wrap{padding-block:44px 40px;display:grid;gap:18px}
+.contact h2{font-size:clamp(26px,7vw,36px);font-weight:800;text-shadow:0 1px 0 rgba(0,0,0,.4)}
+.contact p{opacity:.92}
+.contact .phones{max-width:640px}
+.contact .btn{background:linear-gradient(180deg,#ffffff 0%,#dbe9fa 50%,#bcd4f1 52%,#d3e4f8 100%);color:#08376f;text-shadow:0 1px 0 rgba(255,255,255,.8);justify-self:start}
+.fine{font-size:14px;opacity:.8}
+
+@media (min-width:930px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .top .phones{max-width:640px}
+  .top .addr{flex:0 1 auto}
+}
+@media (min-width:1000px){
+  .cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:active{transform:none}}
